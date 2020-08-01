@@ -7,7 +7,7 @@ Terratest is used for test automation, it validates that the bucket and the file
 
 ## Steps:
 
-Change line 20 of main.tf with a proper path   ["D:\\Path_to\\project_Dir\\"]IaC\\out\
+Change line 20 of IaC/main.tf with a proper path   ["D:\\Path_to\\project_Dir\\"]IaC\\out\
 
 get the AWS required plugin with TERRAFORM INIT
 1. >cd IaC

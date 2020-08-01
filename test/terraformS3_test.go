@@ -2,7 +2,7 @@ package test
 
 import (
 	"testing"
-
+	//imports needed for the functionality we used.
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/gruntwork-io/terratest/modules/aws"
 	"github.com/stretchr/testify/assert"
@@ -14,8 +14,7 @@ import (
 func TestTerraformS3(t *testing.T) {
 	t.Parallel()
 
-	// Give this S3 Bucket a unique ID for a name tag so we can distinguish it from any other Buckets provisioned
-	// in your AWS account
+	// Name of S3 Bucket we can distinguish (created in terraform)
 	expectedName := "flugel-bucket"
 
 	terraformOptions := &terraform.Options{
@@ -28,10 +27,11 @@ func TestTerraformS3(t *testing.T) {
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
 	terraform.InitAndApply(t, terraformOptions)
 
-	// Run `terraform output` to get the value of an output variable
+	// comparing the actual name of the bucket with the expected name.
 	BucketID := terraform.Output(t, terraformOptions, "BucketID")
 	assert.Equal(t, expectedName, BucketID)
 
+	//validating if the TXT files exist and have content.
 	file1 := aws.GetS3ObjectContents(t, "us-east-1", expectedName, "test1.txt")
 	assert.NotEmpty(t,file1)
 	file2 := aws.GetS3ObjectContents(t, "us-east-1", expectedName, "test2.txt")
