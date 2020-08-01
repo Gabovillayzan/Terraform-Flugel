@@ -17,7 +17,7 @@ resource "aws_s3_bucket" "myBucket" {
   }
   provisioner "local-exec" {
     command = <<EOT
-    aws s3 cp D:\\Projects\\Terraform-Flugel2\\Terraform-Flugel\\IaC\\out\  s3://${aws_s3_bucket.myBucket.id} --acl public-read --recursive --exclude "*" --include "*.txt"
+    aws s3 cp D:\\Projects\\TerraformFlugel2\\Terraform-Flugel\\IaC\\out\  s3://${aws_s3_bucket.myBucket.id} --acl public-read --recursive --exclude "*" --include "*.txt"
     EOT
   }
   tags = {
