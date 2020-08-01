@@ -21,6 +21,7 @@ exec the test:
 
 
 ## Output of the terratest:
+```shell script
 PS D:\Projects\TerraformFlugel2\Terraform-Flugel\test> go test -run TerraformS3
 TestTerraformS3 2020-08-01T04:14:03-05:00 retry.go:72: terraform [init -upgrade=false]
 TestTerraformS3 2020-08-01T04:14:03-05:00 logger.go:66: Running command terraform with args [init -upgrade=false]
@@ -74,3 +75,5 @@ TestTerraformS3 2020-08-01T04:14:35-05:00 logger.go:66:
 TestTerraformS3 2020-08-01T04:14:35-05:00 logger.go:66: Destroy complete! Resources: 1 destroyed.
 PASS
 ok      _/D_/Projects/TerraformFlugel2/Terraform-Flugel/test    31.385s
+```
+
